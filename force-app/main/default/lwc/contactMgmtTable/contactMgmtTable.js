@@ -1,10 +1,10 @@
 /**
  * @description       :
  * @author            : cubiascaceres
- * @last modified on  : 2023-09-24
+ * @last modified on  : 2023-09-25
  * @last modified by  : cubiascaceres
  **/
-import { LightningElement } from "lwc";
+import { LightningElement, api } from "lwc";
 import getContacts from "@salesforce/apex/ContactMgmtController.getContacts";
 
 const MGMT_ACTIONS = [
@@ -62,5 +62,17 @@ export default class ContactMgmtTable extends LightningElement {
       detail: { id: row.Id, action: selectedAction }
     });
     this.dispatchEvent(tableEvent);
+  }
+
+  @api
+  removeContactFromTable(deletedContactId) {
+    this.contacts = this.contacts.filter(
+      (contact) => contact.Id !== deletedContactId
+    );
+  }
+
+  @api
+  addContactToTable(contact) {
+    this.contacts.unshift(contact);
   }
 }
