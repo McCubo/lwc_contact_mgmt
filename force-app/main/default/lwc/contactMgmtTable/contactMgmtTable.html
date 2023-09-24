@@ -1,0 +1,20 @@
+<!--
+  @description       : 
+  @author            : cubiascaceres 
+  @last modified on  : 2023-09-23
+  @last modified by  : cubiascaceres
+-->
+<template>
+  <div style="height: 300px">
+    <lightning-datatable
+      key-field="Id"
+      data={contacts}
+      columns={columns}
+      onrowaction={handleRowAction}
+      hide-checkbox-column
+      enable-infinite-loading
+      onloadmore={loadMoreData}
+    >
+    </lightning-datatable>
+  </div>
+</template>
