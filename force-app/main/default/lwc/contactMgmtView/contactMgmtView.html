@@ -1,0 +1,23 @@
+<!--
+  @description       : 
+  @author            : cubiascaceres
+  @last modified on  : 2023-09-24
+  @last modified by  : cubiascaceres
+-->
+<template>
+  <lightning-record-view-form object-api-name="Contact" record-id={contactId}>
+    <div class="slds-box">
+      <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-2">
+          <lightning-output-field field-name={cName}> </lightning-output-field>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+          <lightning-output-field field-name={cPhone}> </lightning-output-field>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+          <lightning-output-field field-name={cEmail}> </lightning-output-field>
+        </div>
+      </div>
+    </div>
+  </lightning-record-view-form>
+</template>
