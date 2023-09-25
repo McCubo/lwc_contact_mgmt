@@ -1,7 +1,7 @@
 /**
  * @description       : apex class holds all SOQL queries for standard `Contact` object
  * @author            : cubiascaceres
- * @last modified on  : 2023-09-23
+ * @last modified on  : 2023-09-25
  * @last modified by  : cubiascaceres
  **/
 
