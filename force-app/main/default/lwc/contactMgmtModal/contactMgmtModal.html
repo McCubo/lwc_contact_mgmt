@@ -1,0 +1,35 @@
+<!--
+  @description       : 
+  @author            : cubiascaceres
+  @last modified on  : 2023-09-25
+  @last modified by  : cubiascaceres
+-->
+<template>
+  <lightning-modal-header
+    label="Contact Management Form"
+  ></lightning-modal-header>
+  <lightning-modal-body>
+    <template if:true={isViewMode}>
+      <c-contact-mgmt-view contact-id={contactId}></c-contact-mgmt-view>
+    </template>
+    <template if:true={isEditable}>
+      <c-contact-mgmt-form contact={contact} mode={mode}></c-contact-mgmt-form>
+    </template>
+  </lightning-modal-body>
+  <lightning-modal-footer>
+    <lightning-button
+      variant="destructive-text"
+      label="Close"
+      title="close modal window"
+      onclick={handleClose}
+    ></lightning-button>
+    <template if:true={isEditable}>
+      <lightning-button
+        label="Save Contact"
+        title="Save contact record"
+        onclick={handleUpsert}
+        class="slds-m-left_x-small"
+      ></lightning-button>
+    </template>
+  </lightning-modal-footer>
+</template>

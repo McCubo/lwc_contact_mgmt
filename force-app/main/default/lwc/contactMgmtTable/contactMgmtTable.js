@@ -6,6 +6,7 @@
  **/
 import { LightningElement, api } from "lwc";
 import getContacts from "@salesforce/apex/ContactMgmtController.getContacts";
+import { ShowToastEvent } from "lightning/platformShowToastEvent";
 
 const MGMT_ACTIONS = [
   { label: "View", name: "view" },
@@ -69,10 +70,38 @@ export default class ContactMgmtTable extends LightningElement {
     this.contacts = this.contacts.filter(
       (contact) => contact.Id !== deletedContactId
     );
+    const event = new ShowToastEvent({
+      title: "Record deleted.",
+      message: "Contact has been successfully deleted.",
+      variant: "success"
+    });
+    this.dispatchEvent(event);
   }
 
   @api
   addContactToTable(contact) {
-    this.contacts.unshift(contact);
+    let _contacts = JSON.parse(JSON.stringify(this.contacts));
+    _contacts.unshift(contact);
+    this.contacts = _contacts;
+    const event = new ShowToastEvent({
+      title: "Record created.",
+      message: "New contact record has been successfully created.",
+      variant: "success"
+    });
+    this.dispatchEvent(event);
+  }
+
+  @api
+  refreshContactRow(updatedContact) {
+    this.contacts = this.contacts.filter(
+      (contact) => contact.Id !== updatedContact.Id
+    );
+    this.contacts.unshift(updatedContact);
+    const event = new ShowToastEvent({
+      title: "Record updated.",
+      message: "Record has been successfully updated.",
+      variant: "success"
+    });
+    this.dispatchEvent(event);
   }
 }

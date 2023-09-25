@@ -1,7 +1,7 @@
 <!--
   @description       : 
   @author            : cubiascaceres
-  @last modified on  : 2023-09-23
+  @last modified on  : 2023-09-25
   @last modified by  : cubiascaceres
 -->
 <template>
@@ -31,6 +31,22 @@
             <p class="slds-page-header__name-meta">
               View, Update and Delete contact records.
             </p>
+          </div>
+          <div class="slds-page-header__col-actions">
+            <div class="slds-page-header__controls">
+              <div class="slds-page-header__control">
+                <ul class="slds-button-group-list">
+                  <li>
+                    <lightning-button
+                      label="New Record"
+                      title="Create new contact record"
+                      icon-name="utility:add"
+                      onclick={handleNewClick}
+                    ></lightning-button>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,0 +1,24 @@
+<!--
+  @description       : 
+  @author            : cubiascaceres
+  @last modified on  : 2023-09-25
+  @last modified by  : cubiascaceres
+-->
+<template>
+  <div style="position: relative">
+    <template if:true={isLoading}>
+      <lightning-spinner
+        alternative-text="Loading"
+        size="large"
+      ></lightning-spinner>
+    </template>
+    <div class="slds-box slds-grid slds-grid_vertical backgroun_wit">
+      <div class="slds-col">
+        <c-contact-mgmt-header onaction={actionClicked}></c-contact-mgmt-header>
+      </div>
+      <div class="slds-col slds-m-vertical_medium">
+        <c-contact-mgmt-table onaction={actionClicked}></c-contact-mgmt-table>
+      </div>
+    </div>
+  </div>
+</template>
