@@ -6,7 +6,7 @@
  **/
 public with sharing class ContactsService {
   /**
-   * @description
+   * @description first, case records associated to contacts are deleted (to avoid dependency errors while deleting contact) (trigger)
    * @param contactIds
    * @param allOrNone
    * @return List<Id>
